@@ -6,20 +6,23 @@ using TMPro;
 
 public class playerMovement : MonoBehaviour
 {
+    public Animator animator;
     [SerializeField] private LayerMask WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform CeilingCheck;	
 
     public float JumpForce = 400f;
     public float velocity = 0;
-    
+
     private Rigidbody2D rb;
     private float moveX;
     private float moveY;
     private bool isFacingRight = true;
     private bool isGrounded = true;
     const float GroundedRadius = .2f;
-    private bool canJump = true;
+
+    PlayerInputAsset playerInputAsset;
+
     // private int count;
     // public TextMeshProUGUI countText;
     // public GameObject canvas;
@@ -28,11 +31,7 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        // count = 0;
-
-        // SetCountText();
-
+        playerInputAsset = new PlayerInputAsset();
     }
 
     void FixedUpdate()
@@ -40,6 +39,18 @@ public class playerMovement : MonoBehaviour
         Vector2 force = new Vector2(moveX*velocity, 0.0f);
         rb.AddForce(force);
 
+
+
+        bool isSpaceKeyHeld = playerInputAsset.Player.SpaceKey.ReadValue<float>() > 0.1f;
+        Debug.Log(playerInputAsset.Player.SpaceKey.ReadValue<float>());
+        
+        if(isSpaceKeyHeld){
+            animator.SetBool("IsAtacking",true);
+
+        }
+        else{
+            animator.SetBool("IsAtacking",false);
+        }
 		isGrounded = false;
 
 		Collider2D[] colliders = Physics2D.OverlapCircleAll(GroundCheck.position, GroundedRadius, WhatIsGround);
@@ -48,8 +59,13 @@ public class playerMovement : MonoBehaviour
 			if (colliders[i].gameObject != gameObject)
 			{
 				isGrounded = true;
+                animator.SetBool("IsJumping",false);
+
+
 			}
 		}
+
+
 	}
     void OnMove(InputValue movementValue)
     {
@@ -58,7 +74,8 @@ public class playerMovement : MonoBehaviour
         moveY = movementVector.y;
         Debug.Log(movementVector);
         Debug.Log(isGrounded);
-
+        
+        animator.SetFloat("Speed", Mathf.Abs(moveX));
 
         if (moveX > 0 && !isFacingRight)
 			{
@@ -70,9 +87,11 @@ public class playerMovement : MonoBehaviour
             // ... flip the player.
             Flip();
         }
-        if (isGrounded && canJump && moveY>0) {
+        if (isGrounded && moveY>0) {
             // Add a vertical force to the player.
 			isGrounded = false;
+            animator.SetBool("IsJumping",true);
+
 			rb.AddForce(new Vector2(0f, JumpForce));
         }
     }

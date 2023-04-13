@@ -1,0 +1,34 @@
+{
+    "name": "playerMovement",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "048d598b-665d-47b4-900d-68661b520a62",
+            "actions": [
+                {
+                    "name": "SpaceKey",
+                    "type": "Button",
+                    "id": "511f7a82-eb08-4260-8311-cde78cba48e2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "60777b54-48a5-4a1a-8d4e-cec46c78ccb5",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpaceKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

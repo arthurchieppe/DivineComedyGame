@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 10684930}
   - component: {fileID: 10684929}
   - component: {fileID: 10684933}
+  - component: {fileID: 10684934}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -272,12 +273,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ef950e0d82847aca816f93df979a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 10684934}
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 2147483647
   GroundCheck: {fileID: 766729393}
   CeilingCheck: {fileID: 235728410}
-  velocity: 5
+  JumpForce: 300
+  velocity: 8
 --- !u!114 &10684933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +311,26 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &10684934
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10684926}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20e602deae8464740bdf7780c72f654c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &235728409
 GameObject:
   m_ObjectHideFlags: 0
