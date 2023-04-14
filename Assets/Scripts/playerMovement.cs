@@ -19,7 +19,7 @@ public class playerMovement : MonoBehaviour
     private float moveY;
     private bool isFacingRight = true;
     private bool isGrounded = true;
-    const float GroundedRadius = .2f;
+    const float GroundedRadius = .1f;
 
     PlayerInputAsset playerInputAsset;
 
@@ -32,17 +32,32 @@ public class playerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerInputAsset = new PlayerInputAsset();
+        isGrounded = true;
+    }
+    void Update() {
+        // Collider2D[] colliders = Physics2D.OverlapCircleAll(GroundCheck.position, GroundedRadius, WhatIsGround);
+		// for (int i = 0; i < colliders.Length; i++)
+		// {
+		// 	if (colliders[i].gameObject != gameObject)
+		// 	{
+		// 		isGrounded = true;
+        //         animator.SetBool("IsJumping",false);
+		// 	}
+		// }
+
     }
 
     void FixedUpdate()
 	{
-        Vector2 force = new Vector2(moveX*velocity, 0.0f);
-        rb.AddForce(force);
+        // Vector2 force = new Vector2(moveX*velocity, 0.0f);
+        // rb.AddForce(force);
+        Vector2 horizontalMove = new Vector2(moveX*velocity, 0.0f) ;
+        transform.Translate(horizontalMove * Time.deltaTime);
 
 
 
         bool isSpaceKeyHeld = playerInputAsset.Player.SpaceKey.ReadValue<float>() > 0.1f;
-        Debug.Log(playerInputAsset.Player.SpaceKey.ReadValue<float>());
+        // Debug.Log(playerInputAsset.Player.SpaceKey.ReadValue<float>());
         
         if(isSpaceKeyHeld){
             animator.SetBool("IsAtacking",true);
@@ -51,19 +66,10 @@ public class playerMovement : MonoBehaviour
         else{
             animator.SetBool("IsAtacking",false);
         }
-		isGrounded = false;
-
-		Collider2D[] colliders = Physics2D.OverlapCircleAll(GroundCheck.position, GroundedRadius, WhatIsGround);
-		for (int i = 0; i < colliders.Length; i++)
-		{
-			if (colliders[i].gameObject != gameObject)
-			{
-				isGrounded = true;
-                animator.SetBool("IsJumping",false);
 
 
-			}
-		}
+
+         
 
 
 	}
@@ -73,7 +79,7 @@ public class playerMovement : MonoBehaviour
         moveX = movementVector.x;
         moveY = movementVector.y;
         Debug.Log(movementVector);
-        Debug.Log(isGrounded);
+        // Debug.Log(isGrounded);
         
         animator.SetFloat("Speed", Mathf.Abs(moveX));
 
@@ -87,34 +93,31 @@ public class playerMovement : MonoBehaviour
             // ... flip the player.
             Flip();
         }
+
+        
+
         if (isGrounded && moveY>0) {
             // Add a vertical force to the player.
-			isGrounded = false;
+            Debug.Log("Pulou!");
+            isGrounded = false;
             animator.SetBool("IsJumping",true);
 
 			rb.AddForce(new Vector2(0f, JumpForce));
         }
     }
 
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.gameObject.CompareTag("PickUp"))
-    //     {
-    //         other.gameObject.SetActive(false);
-    //         count++;
-    //         SetCountText();
-    //     }
-    //     if (other.gameObject.CompareTag("PenaltyWall"))
-    //     {
-    //         UImanager ui = canvas.GetComponent<UImanager>();
-    //         ui.deductTimer();
-    //         count--;
-    //     }
-    // }
-    // void SetCountText()
-	// {
-	// 	countText.text = "Count: " + count.ToString();
-	// }
+    void OnCollisionEnter2D(Collision2D hit)
+    {
+        Debug.Log("Pisou no chao!");
+        if(hit.gameObject.CompareTag("Ground")){
+            isGrounded = true;
+        }
+	}
+    void OnCOllisionExit2D(Collision2D hit){
+        if(hit.gameObject.CompareTag("Ground")){
+            isGrounded = false;
+        }
+    }
 
 
     private void Flip()
