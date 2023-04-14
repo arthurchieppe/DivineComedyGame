@@ -6,10 +6,7 @@ using TMPro;
 
 public class playerMovement : MonoBehaviour
 {
-    public Animator animator;
-    [SerializeField] private LayerMask WhatIsGround;							// A mask determining what is ground to the character
-	[SerializeField] private Transform GroundCheck;							// A position marking where to check if the player is grounded.
-	[SerializeField] private Transform CeilingCheck;	
+    public Animator animator;	
 
     public float JumpForce = 400f;
     public float velocity = 0;
@@ -21,7 +18,6 @@ public class playerMovement : MonoBehaviour
     private bool isGrounded = true;
     const float GroundedRadius = .1f;
 
-    PlayerInputAsset playerInputAsset;
 
     // private int count;
     // public TextMeshProUGUI countText;
@@ -31,7 +27,6 @@ public class playerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerInputAsset = new PlayerInputAsset();
         isGrounded = true;
     }
     void Update() {
