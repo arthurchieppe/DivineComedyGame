@@ -7,10 +7,17 @@ using UnityEngine.InputSystem;
 public class PlayerCombat : MonoBehaviour
 {
     public Animator animator;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+
     private Keyboard keyboard;
 
     float attackRate = 2f;
     float nextAttackTime = 0f;
+    int attackDamage = 40;
+
+
 
     void Update()
     {
@@ -26,11 +33,17 @@ public class PlayerCombat : MonoBehaviour
     void OnMelee(){
         animator.SetTrigger("Attack");
 
-        // else{
-        //     animator.SetBool("IsAtacking",false);
-        // }
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        foreach(Collider2D enemy in hitEnemies){
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+        }
 
     }
 
+    void OnDrawGizmosSelected(){
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
 
 }

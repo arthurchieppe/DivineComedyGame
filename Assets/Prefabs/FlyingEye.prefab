@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 1989012666514900548}
   - component: {fileID: 1989012666514900544}
   - component: {fileID: 1989012666514900545}
-  m_Layer: 0
+  - component: {fileID: 4030576611910996926}
+  m_Layer: 6
   m_Name: FlyingEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,3 +155,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.42384267, y: 0.3187329}
   m_EdgeRadius: 0
+--- !u!114 &4030576611910996926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989012666514900549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c226723756d2a346b38ab7ae102af4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  animator: {fileID: 1989012666514900548}
