@@ -28,9 +28,9 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
             ""id"": ""048d598b-665d-47b4-900d-68661b520a62"",
             ""actions"": [
                 {
-                    ""name"": ""SpaceKey"",
+                    ""name"": ""Melee"",
                     ""type"": ""Button"",
-                    ""id"": ""511f7a82-eb08-4260-8311-cde78cba48e2"",
+                    ""id"": ""0fafe3da-6852-41a7-a591-ecddda74d96c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -40,12 +40,12 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""60777b54-48a5-4a1a-8d4e-cec46c78ccb5"",
+                    ""id"": ""1e61cbf8-7e90-4d32-9221-5fd9a0d0fc3b"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SpaceKey"",
+                    ""action"": ""Melee"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -56,7 +56,7 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_SpaceKey = m_Player.FindAction("SpaceKey", throwIfNotFound: true);
+        m_Player_Melee = m_Player.FindAction("Melee", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -118,12 +118,12 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_SpaceKey;
+    private readonly InputAction m_Player_Melee;
     public struct PlayerActions
     {
         private @PlayerInputAsset m_Wrapper;
         public PlayerActions(@PlayerInputAsset wrapper) { m_Wrapper = wrapper; }
-        public InputAction @SpaceKey => m_Wrapper.m_Player_SpaceKey;
+        public InputAction @Melee => m_Wrapper.m_Player_Melee;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -133,16 +133,16 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @SpaceKey.started += instance.OnSpaceKey;
-            @SpaceKey.performed += instance.OnSpaceKey;
-            @SpaceKey.canceled += instance.OnSpaceKey;
+            @Melee.started += instance.OnMelee;
+            @Melee.performed += instance.OnMelee;
+            @Melee.canceled += instance.OnMelee;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @SpaceKey.started -= instance.OnSpaceKey;
-            @SpaceKey.performed -= instance.OnSpaceKey;
-            @SpaceKey.canceled -= instance.OnSpaceKey;
+            @Melee.started -= instance.OnMelee;
+            @Melee.performed -= instance.OnMelee;
+            @Melee.canceled -= instance.OnMelee;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -162,6 +162,6 @@ public partial class @PlayerInputAsset: IInputActionCollection2, IDisposable
     public PlayerActions @Player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnSpaceKey(InputAction.CallbackContext context);
+        void OnMelee(InputAction.CallbackContext context);
     }
 }

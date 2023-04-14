@@ -54,31 +54,13 @@ public class playerMovement : MonoBehaviour
         Vector2 horizontalMove = new Vector2(moveX*velocity, 0.0f) ;
         transform.Translate(horizontalMove * Time.deltaTime);
 
-
-
-        bool isSpaceKeyHeld = playerInputAsset.Player.SpaceKey.ReadValue<float>() > 0.1f;
-        // Debug.Log(playerInputAsset.Player.SpaceKey.ReadValue<float>());
-        
-        if(isSpaceKeyHeld){
-            animator.SetBool("IsAtacking",true);
-
-        }
-        else{
-            animator.SetBool("IsAtacking",false);
-        }
-
-
-
-         
-
-
 	}
     void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
         moveX = movementVector.x;
         moveY = movementVector.y;
-        Debug.Log(movementVector);
+        //Debug.Log(movementVector);
         // Debug.Log(isGrounded);
         
         animator.SetFloat("Speed", Mathf.Abs(moveX));
@@ -98,7 +80,7 @@ public class playerMovement : MonoBehaviour
 
         if (isGrounded && moveY>0) {
             // Add a vertical force to the player.
-            Debug.Log("Pulou!");
+            //Debug.Log("Pulou!");
             isGrounded = false;
             animator.SetBool("IsJumping",true);
 
@@ -108,9 +90,10 @@ public class playerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D hit)
     {
-        Debug.Log("Pisou no chao!");
+        //Debug.Log("Pisou no chao!");
         if(hit.gameObject.CompareTag("Ground")){
             isGrounded = true;
+            animator.SetBool("IsJumping",false);
         }
 	}
     void OnCOllisionExit2D(Collision2D hit){
