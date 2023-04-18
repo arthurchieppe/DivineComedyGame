@@ -75,15 +75,15 @@ public class PlayerCombat : MonoBehaviour
             
     //     }
     // }
+    
     public void TakeDamage(int damage){
-        currentHealth -= damage;
+        
         animator.SetTrigger("Hurt");
+        nextHurtTime = Time.time + 1f/hurtRate;
+        currentHealth -= damage;
 
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color =  new Color(255f, 0f, 0f, 1f);
-        nextHurtTime = Time.time + 1f/hurtRate;
+        
     }
-            
-            
-
 }
