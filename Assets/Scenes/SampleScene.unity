@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 10684935}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -344,6 +344,70 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 64
+  attackDamage: 40
+  maxHealth: 100
+--- !u!1001 &12374303
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 781511276}
+    m_Modifications:
+    - target: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.0154619
+      objectReference: {fileID: 0}
+    - target: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5560066
+      objectReference: {fileID: 0}
+    - target: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.008544557
+      objectReference: {fileID: 0}
+    - target: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342197165609953791, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+      propertyPath: m_Name
+      value: Skeleton
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+--- !u!4 &429238664 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 342197165609953790, guid: 77099e2d44703a54eb644fae39d002b0, type: 3}
+  m_PrefabInstance: {fileID: 12374303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +589,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1673894283}
+  - {fileID: 429238664}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1573,25 +1638,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3863751831671711915, guid: 827a20ae4d3004f439b5feb375b3b6c9, type: 3}
   m_PrefabInstance: {fileID: 3863751830898251456}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1509697562 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3863751831671711914, guid: 827a20ae4d3004f439b5feb375b3b6c9, type: 3}
-  m_PrefabInstance: {fileID: 3863751830898251456}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1509697567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1509697562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c226723756d2a346b38ab7ae102af4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  animator: {fileID: 0}
 --- !u!1 &1649296863
 GameObject:
   m_ObjectHideFlags: 0

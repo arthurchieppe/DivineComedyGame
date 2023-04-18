@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
     public Animator animator;
+    public int attackDamage = 40;
+
 
     void Start()
     {
@@ -16,7 +18,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentHealth<=0){
+            Die();
+        }
     }
 
     public void TakeDamage(int damage){
@@ -25,9 +29,6 @@ public class Enemy : MonoBehaviour
         animator.SetTrigger("Hurt");
         // Play Hit animation
 
-        if (currentHealth<=0){
-            Die();
-        }
     }
     void Die(){
         Debug.Log("Enemy Died!");
@@ -39,4 +40,12 @@ public class Enemy : MonoBehaviour
         this.enabled = false;
         
     }
+
+    void OnCollisionEnter2D(Collision2D hit) {
+        if(hit.gameObject.CompareTag("Player")){
+            hit.gameObject.GetComponent<PlayerCombat>().TakeDamage(attackDamage);
+            animator.SetTrigger("Attack");
+        }
+    }
+
 }
