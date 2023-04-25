@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 
@@ -10,6 +11,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
+    public Image lifeBar;
 
     private Keyboard keyboard;
 
@@ -44,10 +46,10 @@ public class PlayerCombat : MonoBehaviour
             spriteRenderer.color =  new Color(255f, 255f, 255f, 1f);
         }
 
-        if (currentHealth<=0){
-            // Die();
-            Debug.Log("Player Died!");
-        }
+        // if (currentHealth<=0){
+        //     // Die();
+        //     //Debug.Log("Player Died!");
+        // }
         
     }
     void OnMelee(){
@@ -81,6 +83,8 @@ public class PlayerCombat : MonoBehaviour
         animator.SetTrigger("Hurt");
         nextHurtTime = Time.time + 1f/hurtRate;
         currentHealth -= damage;
+
+        lifeBar.GetComponent<LifeBarController>().health = currentHealth;
 
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color =  new Color(255f, 0f, 0f, 1f);

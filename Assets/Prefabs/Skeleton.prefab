@@ -109,7 +109,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &342197165609953784
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,6 +176,8 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  moveSpeed: 2
+  followDistance: 3
 --- !u!1 &8765869632886116931
 GameObject:
   m_ObjectHideFlags: 0

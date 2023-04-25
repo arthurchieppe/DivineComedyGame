@@ -17,6 +17,10 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 1f;
     public float followDistance = 4f;
     Transform playerTransform;
+    private bool attackCooldown = false;
+    private float nextAttackTime;
+    float attackRate = 2f;
+
 
 
     void Start()
@@ -32,13 +36,20 @@ public class Enemy : MonoBehaviour
             Die();
         }
 
+        if(Time.time>=nextAttackTime)
+        {
+            attackCooldown = false;
+        } 
+
         // Calculate the distance between the player and enemy
         float distanceToPlayerX = Mathf.Abs(transform.position.x -  playerTransform.position.x);
         float distanceToPlayerY = Mathf.Abs(transform.position.y -  playerTransform.position.y);
 
         // If the player is within the follow distance, move towards the player
-        if (distanceToPlayerX < followDistance && distanceToPlayerY < 1)
+        if (distanceToPlayerX < followDistance && distanceToPlayerY < 0.5)
         {
+            animator.SetFloat("Speed", 1);
+
             Vector2 movement = Vector2.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
 
 
@@ -51,6 +62,10 @@ public class Enemy : MonoBehaviour
 
             transform.position = new Vector2(movement[0], transform.position.y);
         
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0);
         }
     }
 
@@ -72,8 +87,10 @@ public class Enemy : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D hit) {
-        if(hit.gameObject.CompareTag("Player")){
+    void OnCollisionStay2D(Collision2D hit) {
+        if(hit.gameObject.CompareTag("Player") && attackCooldown == false){
+            nextAttackTime = Time.time + 1f/attackRate;
+            attackCooldown = true;
             animator.SetTrigger("Attack");
         }
     }
