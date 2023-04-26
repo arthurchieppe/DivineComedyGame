@@ -14,8 +14,8 @@ TagManager:
   - UI
   - Enemies
   - Player
-  - 
-  - 
+  - Ground
+  - Walls
   - 
   - 
   - 
@@ -42,8 +42,11 @@ TagManager:
   - name: Background
     uniqueID: 63368705
     locked: 0
-  - name: Map
+  - name: Walls
     uniqueID: 3242079693
+    locked: 0
+  - name: Ground
+    uniqueID: 3131774905
     locked: 0
   - name: Default
     uniqueID: 0
