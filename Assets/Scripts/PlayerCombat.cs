@@ -52,6 +52,11 @@ public class PlayerCombat : MonoBehaviour
             animator.SetBool("IsDead",true);
             Debug.Log("Player Died!");
         }
+
+        if (Camera.main.transform.position.y > transform.position.y+5){
+            animator.SetBool("IsDead",true);
+            Debug.Log("Player Died!");
+        }
         
     }
     void OnMelee(){
@@ -95,6 +100,6 @@ public class PlayerCombat : MonoBehaviour
 
     public void OnEndDieAnimation() {
         // Destroy(gameObject);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("EndGame");
     }
 }
