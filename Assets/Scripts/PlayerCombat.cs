@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 
 public class PlayerCombat : MonoBehaviour
@@ -46,10 +48,10 @@ public class PlayerCombat : MonoBehaviour
             spriteRenderer.color =  new Color(255f, 255f, 255f, 1f);
         }
 
-        // if (currentHealth<=0){
-        //     // Die();
-        //     //Debug.Log("Player Died!");
-        // }
+        if (currentHealth<=0){
+            animator.SetBool("IsDead",true);
+            Debug.Log("Player Died!");
+        }
         
     }
     void OnMelee(){
@@ -89,5 +91,10 @@ public class PlayerCombat : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color =  new Color(255f, 0f, 0f, 1f);
         
+    }
+
+    public void OnEndDieAnimation() {
+        // Destroy(gameObject);
+        SceneManager.LoadScene("MainMenu");
     }
 }
