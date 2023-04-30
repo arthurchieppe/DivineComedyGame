@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1989012666514900544}
   - component: {fileID: 1989012666514900545}
   - component: {fileID: 4030576611910996926}
+  - component: {fileID: 8937535311438212747}
   m_Layer: 6
   m_Name: FlyingEye
   m_TagString: Untagged
@@ -174,7 +175,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.024045348, y: -0.01684098}
+  m_Offset: {x: 0.024045348, y: -0.09522979}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -185,7 +186,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.42384267, y: 0.3187329}
+  m_Size: {x: 0.42384267, y: 0.16195527}
   m_EdgeRadius: 0
 --- !u!114 &4030576611910996926
 MonoBehaviour:
@@ -209,3 +210,26 @@ MonoBehaviour:
     m_Bits: 128
   moveSpeed: 1
   followDistance: 4
+--- !u!68 &8937535311438212747
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989012666514900549}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.18778574, y: -0.014232497}
+  - {x: 0.03457415, y: 0.16671284}
+  - {x: 0.23607492, y: -0.014374694}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
