@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
     {
         if (currentHealth<=0){
             Die();
+
         }
 
         if(Time.time>=nextAttackTime)
@@ -96,8 +97,9 @@ public class Enemy : MonoBehaviour
             collider.enabled = false;
         }          
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-        this.enabled = false;
+    
         // Disable the other collider
+        this.enabled = false;
 
         
     }
