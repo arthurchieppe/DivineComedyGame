@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Enemy : MonoBehaviour
 {
@@ -9,8 +11,8 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public int attackDamage = 40;
     private bool isFacingRight = true;
+    public Image powerBar;
     public AudioSource damageSound;
-
 
     public Transform attackPoint;
     public float attackRange = 0.5f;
@@ -82,6 +84,8 @@ public class Enemy : MonoBehaviour
     }
     void Die(){
         Debug.Log("Enemy Died!");
+        powerBar.GetComponent<PowerBarController>().power +=1;
+
         // Die Animation
         animator.SetBool("IsDead", true);
 
@@ -90,7 +94,8 @@ public class Enemy : MonoBehaviour
         Collider2D[] colliders = GetComponents<Collider2D>();
         foreach (Collider2D collider in colliders) {
             collider.enabled = false;
-        }
+        }          
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         this.enabled = false;
         // Disable the other collider
 
