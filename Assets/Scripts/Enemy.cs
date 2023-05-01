@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
         float distanceToPlayerY = Mathf.Abs(transform.position.y -  playerTransform.position.y);
 
         // If the player is within the follow distance, move towards the player
-        if (distanceToPlayerX < followDistance && distanceToPlayerY < 0.5)
+        if (distanceToPlayerX < followDistance && distanceToPlayerY < 1)
         {
             animator.SetFloat("Speed", 1);
 
