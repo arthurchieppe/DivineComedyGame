@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
+
 
 public class playerMovement : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class playerMovement : MonoBehaviour
     public float JumpForce = 400f;
     public float velocity = 0;
     public Tilemap tilemap;
+    public float MaxVerticalVelocity = 7f;
 
     private Rigidbody2D rb;
     private float moveX;
@@ -75,14 +78,33 @@ public class playerMovement : MonoBehaviour
 
         
 
-        if (isGrounded && moveY>0) {
-            // Add a vertical force to the player.
-            //Debug.Log("Pulou!");
-            isGrounded = false;
-            animator.SetBool("IsJumping",true);
+        // if (isGrounded && moveY>0) {
+        //     // Add a vertical force to the player.
+        //     //Debug.Log("Pulou!");
+        //     isGrounded = false;
+        //     animator.SetBool("IsJumping",true);
 
-			rb.AddForce(new Vector2(0f, JumpForce));
-        }
+        //     // Get the current force
+            
+		// 	rb.AddForce(new Vector2(0f, JumpForce));
+            
+        // }
+
+    // Cap the force to a maximum velocity
+    if (isGrounded && moveY > 0) {
+    // Add a vertical force to the player.
+    isGrounded = false;
+    animator.SetBool("IsJumping", true);
+
+    // Calculate the force needed to reach the maximum allowed velocity
+    Vector2 currentVelocity = rb.velocity;
+    float forceY = Mathf.Max(0f, (MaxVerticalVelocity - currentVelocity.y) * rb.mass / Time.fixedDeltaTime);
+
+    // Clamp the force to the maximum jump force and add it to the Rigidbody
+    Vector2 forceToAdd = new Vector2(0f, Mathf.Clamp(forceY, 0f, JumpForce));
+    rb.AddForce(forceToAdd);
+}
+
     }
 
     void OnCollisionEnter2D(Collision2D hit)
@@ -99,6 +121,15 @@ public class playerMovement : MonoBehaviour
         if(hit.gameObject.CompareTag("Ground") && tileCenter.y < transform.position.y){
             isGrounded = true;
             animator.SetBool("IsJumping",false);
+        }
+
+        if(hit.gameObject.CompareTag("Chamber Exit")){
+            Debug.Log("Chamber Exit");
+            // Get active Scene number
+            int scene = SceneManager.GetActiveScene().buildIndex;
+            // Load next scene
+            SceneManager.LoadScene(scene + 1);
+            // SceneManager.LoadScene("BetweenChambers");
         }
 	}
     void OnCOllisionExit2D(Collision2D hit){
