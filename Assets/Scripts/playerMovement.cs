@@ -94,7 +94,9 @@ public class playerMovement : MonoBehaviour
     if (isGrounded && moveY > 0) {
     // Add a vertical force to the player.
     isGrounded = false;
-    animator.SetBool("IsJumping", true);
+    // animator.SetBool("IsJumping", true);
+    animator.SetTrigger("Jumped");
+
 
     // Calculate the force needed to reach the maximum allowed velocity
     Vector2 currentVelocity = rb.velocity;
@@ -120,7 +122,7 @@ public class playerMovement : MonoBehaviour
 
         if(hit.gameObject.CompareTag("Ground") && tileCenter.y < transform.position.y){
             isGrounded = true;
-            animator.SetBool("IsJumping",false);
+            // animator.SetBool("IsJumping",false);
         }
 
         if(hit.gameObject.CompareTag("Chamber Exit")){
