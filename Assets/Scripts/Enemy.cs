@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public int attackDamage = 40;
     private bool isFacingRight = true;
+    public AudioSource damageSound;
+
 
     public Transform attackPoint;
     public float attackRange = 0.5f;
@@ -73,6 +75,8 @@ public class Enemy : MonoBehaviour
         currentHealth -= damage;
 
         animator.SetTrigger("Hurt");
+        damageSound.Play();
+
         // Play Hit animation
 
     }

@@ -14,6 +14,8 @@ public class PlayerCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     public Image lifeBar;
+    public AudioSource damageSound;
+
 
     private Keyboard keyboard;
 
@@ -95,6 +97,7 @@ public class PlayerCombat : MonoBehaviour
 
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color =  new Color(255f, 0f, 0f, 1f);
+        damageSound.Play();
         
     }
 
