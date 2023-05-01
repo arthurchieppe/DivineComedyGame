@@ -133,6 +133,8 @@ public class playerMovement : MonoBehaviour
             SceneManager.LoadScene(scene + 1);
             // SceneManager.LoadScene("BetweenChambers");
         }
+
+
 	}
     void OnCOllisionExit2D(Collision2D hit){
         if(hit.gameObject.CompareTag("Ground")){
