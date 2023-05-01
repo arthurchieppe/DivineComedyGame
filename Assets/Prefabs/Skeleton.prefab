@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   animator: {fileID: 342197165609953785}
-  attackDamage: 40
+  attackDamage: 25
   attackPoint: {fileID: 2604838612975776853}
   attackRange: 0.49
   playerLayer:

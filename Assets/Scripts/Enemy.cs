@@ -86,7 +86,8 @@ public class Enemy : MonoBehaviour
         Collider2D[] colliders = GetComponents<Collider2D>();
         foreach (Collider2D collider in colliders) {
             collider.enabled = false;
-        }
+        }          
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         this.enabled = false;
         // Disable the other collider
 
