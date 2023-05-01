@@ -23,6 +23,7 @@ public class PlayerCombat : MonoBehaviour
     float hurtRate = 2f;
     float nextAttackTime = 0f;
     float nextHurtTime = 0f;
+    public int LifeHeartIncrease = 10;
 
     public int initialAttackDamage;
     public static int attackPowerup;
@@ -115,5 +116,14 @@ public class PlayerCombat : MonoBehaviour
     public void OnEndDieAnimation() {
         // Destroy(gameObject);
         SceneManager.LoadScene("EndGame");
+    }
+
+    void OnCollisionEnter2D(Collision2D hit) {
+        if(hit.gameObject.CompareTag("LifeHeart")){
+            currentHealth += LifeHeartIncrease;
+            lifeBar.GetComponent<LifeBarController>().health = currentHealth;
+            hit.gameObject.SetActive(false);
+        }
+            
     }
 }
