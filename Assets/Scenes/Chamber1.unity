@@ -325,7 +325,6 @@ MonoBehaviour:
   damageSound: {fileID: 173714392}
   LifeHeartIncrease: 10
   initialAttackDamage: 15
-  maxHealth: 100
 --- !u!70 &10684936
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -14003,11 +14002,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493731383905184491, guid: df2b5be28e69944b69b7eeda77240b14, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 139.53888
+      value: 139.5389
       objectReference: {fileID: 0}
     - target: {fileID: 4493731383905184491, guid: df2b5be28e69944b69b7eeda77240b14, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30.08191
+      value: 36.5794
       objectReference: {fileID: 0}
     - target: {fileID: 4493731383905184491, guid: df2b5be28e69944b69b7eeda77240b14, type: 3}
       propertyPath: m_LocalPosition.x
