@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Enemy : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public int attackDamage = 40;
     private bool isFacingRight = true;
+    public Image powerBar;
 
     public Transform attackPoint;
     public float attackRange = 0.5f;
@@ -78,6 +81,8 @@ public class Enemy : MonoBehaviour
     }
     void Die(){
         Debug.Log("Enemy Died!");
+        powerBar.GetComponent<PowerBarController>().power +=1;
+
         // Die Animation
         animator.SetBool("IsDead", true);
 
