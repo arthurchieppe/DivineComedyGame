@@ -170,9 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c226723756d2a346b38ab7ae102af4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 75
   animator: {fileID: 342197165609953785}
   attackDamage: 25
+  powerBar: {fileID: 0}
   damageSound: {fileID: 95606453889037177}
   attackPoint: {fileID: 2604838612975776853}
   attackRange: 0.49

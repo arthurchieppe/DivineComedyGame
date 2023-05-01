@@ -24,6 +24,6 @@ public class StartScreenUI : MonoBehaviour
     // }
 
     public void playGame() {
-        SceneManager.LoadScene("Chamber0");
+        SceneManager.LoadScene("Chamber1");
     }
 }

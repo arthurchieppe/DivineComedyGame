@@ -201,9 +201,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c226723756d2a346b38ab7ae102af4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 60
   animator: {fileID: 3863751831671711916}
   attackDamage: 20
+  powerBar: {fileID: 0}
   damageSound: {fileID: 6641477366218740911}
   attackPoint: {fileID: 8574107288627637548}
   attackRange: 0.47

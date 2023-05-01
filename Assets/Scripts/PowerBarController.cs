@@ -24,6 +24,7 @@ public class PowerBarController : MonoBehaviour
         powerBar.fillAmount = power/(float)maxPower;
         if (power == maxPower){
             power = 0;
+            PlayerCombat.attackPowerup +=5;
         }
     }
 }

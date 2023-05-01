@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth;
     int currentHealth;
     public Animator animator;
-    public int attackDamage = 40;
+    public int attackDamage;
     private bool isFacingRight = true;
     public Image powerBar;
     public AudioSource damageSound;
@@ -76,6 +76,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage){
         currentHealth -= damage;
+        // Debug.Log(damage);
+        // Debug.Log(currentHealth);
 
         animator.SetTrigger("Hurt");
         damageSound.Play();

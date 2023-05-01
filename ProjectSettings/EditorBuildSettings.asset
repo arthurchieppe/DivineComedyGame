@@ -8,19 +8,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 2756e09c12d1e4b1a8e33fd3c3c0a53b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Chamber0.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Chamber1.unity
     guid: 8530cb0fa0857d14baf12c1838b0f0b2
   - enabled: 1
+    path: Assets/Scenes/Chamber2.unity
+    guid: 7b741d58683368e46aa1c56d22e92b59
+  - enabled: 1
+    path: Assets/Scenes/Chamber3.unity
+    guid: 4e28aa73ee629d34496d9d2d89684edc
+  - enabled: 1
+    path: Assets/Scenes/Chamber4.unity
+    guid: 6dc2e3d777cf80146941e80f5fb6ddf7
+  - enabled: 1
     path: Assets/Scenes/YouWon.unity
     guid: 87927bc008a53442c8ffb98d36a32200
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
     guid: ddc898fa7957b354cb9a6e4ef0b989e9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BetweenChambers.unity
     guid: 675ad2c648dee4966a64777fbca359f1
   m_configObjects: {}

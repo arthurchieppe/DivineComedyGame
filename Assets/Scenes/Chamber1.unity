@@ -248,10 +248,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 10684934}
-  JumpForce: 380
+  JumpForce: 500
   velocity: 5
   tilemap: {fileID: 878689781}
-  MaxVerticalVelocity: 7
+  MaxVerticalVelocity: 8
 --- !u!114 &10684933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +321,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   lifeBar: {fileID: 53597437}
-  attackDamage: 40
+  damageSound: {fileID: 0}
+  initialAttackDamage: 15
   maxHealth: 100
 --- !u!70 &10684936
 CapsuleCollider2D:
@@ -446,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1989012666514900546, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.342567
+      value: 14.54
       objectReference: {fileID: 0}
     - target: {fileID: 1989012666514900546, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -484,6 +485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlyingEye
       objectReference: {fileID: 0}
+    - target: {fileID: 4030576611910996926, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
 --- !u!4 &92266040 stripped
@@ -498,6 +503,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom (1)
@@ -560,6 +569,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom (3)
@@ -622,6 +635,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom (5)
@@ -2149,6 +2166,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom (2)
@@ -2257,7 +2278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1989012666514900546, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.17
+      value: 2.47
       objectReference: {fileID: 0}
     - target: {fileID: 1989012666514900546, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2299,6 +2320,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4030576611910996926, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
 --- !u!1 &781511275
@@ -9640,6 +9665,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom (2)
@@ -9701,6 +9730,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom (7)
@@ -9768,7 +9801,7 @@ GameObject:
   - component: {fileID: 971836958}
   - component: {fileID: 971836957}
   m_Layer: 5
-  m_Name: PowerBarBackground (1)
+  m_Name: PowerBarBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9840,6 +9873,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom (4)
@@ -9912,7 +9949,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1989012666514900546, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.2
+      value: 11.7
       objectReference: {fileID: 0}
     - target: {fileID: 1989012666514900546, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9954,6 +9991,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4030576611910996926, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
 --- !u!1 &1062766564
@@ -12671,7 +12712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1989012666514900546, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.288857
+      value: 20.58
       objectReference: {fileID: 0}
     - target: {fileID: 1989012666514900546, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12709,6 +12750,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlyingEye (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4030576611910996926, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
 --- !u!4 &1117224046 stripped
@@ -12742,7 +12787,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161507536}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12752,7 +12797,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.378418, y: 1.6877136}
+  m_AnchoredPosition: {x: 10.378432, y: 1.6876659}
   m_SizeDelta: {x: 93.9113, y: 7.0902}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1161507538
@@ -12924,6 +12969,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom (1)
@@ -13082,6 +13131,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom
@@ -13144,6 +13197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom (6)
@@ -13379,6 +13436,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom (3)
@@ -13573,6 +13634,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1084886740}
     m_Modifications:
+    - target: {fileID: 7853615460136350184, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     - target: {fileID: 8055933330955512688, guid: 7b274b1bc221b2743ad7cd83dbefa80f, type: 3}
       propertyPath: m_Name
       value: Mushroom
@@ -13717,7 +13782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1989012666514900546, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.81
+      value: -0.42
       objectReference: {fileID: 0}
     - target: {fileID: 1989012666514900546, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13759,5 +13824,9 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4030576611910996926, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}
+      propertyPath: powerBar
+      value: 
+      objectReference: {fileID: 1161507539}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 766109322a00cb14a880e2d7de8856a5, type: 3}

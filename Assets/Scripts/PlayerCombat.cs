@@ -24,18 +24,24 @@ public class PlayerCombat : MonoBehaviour
     float nextAttackTime = 0f;
     float nextHurtTime = 0f;
 
-    public int attackDamage = 40;
+    public int initialAttackDamage;
+    public static int attackPowerup;
+    private int attackDamage;
 
     public int maxHealth = 100;
     int currentHealth;
 
     void Start(){
         currentHealth = maxHealth;
+        attackDamage = initialAttackDamage + attackPowerup;
     }
 
 
     void Update()
     {
+        attackDamage = initialAttackDamage + attackPowerup;
+        Debug.Log(attackDamage);
+        
         if(Time.time>=nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.Space)){
