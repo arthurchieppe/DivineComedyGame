@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.Tilemaps;
 
 public class playerMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class playerMovement : MonoBehaviour
 
     public float JumpForce = 400f;
     public float velocity = 0;
+    public Tilemap tilemap;
 
     private Rigidbody2D rb;
     private float moveX;
@@ -86,7 +88,15 @@ public class playerMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D hit)
     {
         //Debug.Log("Pisou no chao!");
-        if(hit.gameObject.CompareTag("Ground")){
+        // Get Y position of the player
+        // float playerY = transform.position.y;
+        // // Get Y position of the ground
+        // float groundY = hit.transform.position.y;
+        ContactPoint2D contact = hit.contacts[0];
+        Vector3Int tilePosition = tilemap.WorldToCell(contact.point);
+        Vector3 tileCenter = tilemap.GetCellCenterWorld(tilePosition);
+
+        if(hit.gameObject.CompareTag("Ground") && tileCenter.y < transform.position.y){
             isGrounded = true;
             animator.SetBool("IsJumping",false);
         }
