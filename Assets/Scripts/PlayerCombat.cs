@@ -71,9 +71,14 @@ public class PlayerCombat : MonoBehaviour
         animator.SetTrigger("Attack");
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-        foreach(Collider2D enemy in hitEnemies){
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+        // If len of hitEnemies > 0, then we hit an enemy
+        if (hitEnemies.Length > 0) {
+            hitEnemies[0].GetComponent<Enemy>().TakeDamage(attackDamage);
         }
+
+        // foreach(Collider2D enemy in hitEnemies){
+        //     enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+        // }
 
     }
 
