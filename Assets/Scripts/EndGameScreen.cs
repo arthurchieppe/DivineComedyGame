@@ -11,5 +11,7 @@ public class EndGameScreen : MonoBehaviour
 {
     public void goMainMenu() {
         SceneManager.LoadScene("MainMenu");
+        PlayerCombat.ResetPlayerStats();
+        
     }
 }

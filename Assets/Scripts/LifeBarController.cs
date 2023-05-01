@@ -20,6 +20,6 @@ public class LifeBarController : MonoBehaviour
     void Update()
     {
         // Debug.Log(health/(float)maxHealth);
-        lifeBar.fillAmount = health/(float)maxHealth;
+        lifeBar.fillAmount = PlayerCombat.currentHealth/(float)maxHealth;
     }
 }

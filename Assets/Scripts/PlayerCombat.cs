@@ -29,19 +29,22 @@ public class PlayerCombat : MonoBehaviour
     public static int attackPowerup;
     private int attackDamage;
 
-    public int maxHealth = 100;
-    int currentHealth;
+    public static int maxHealth = 100;
+    public static int currentHealth = 100;
+
 
     void Start(){
-        currentHealth = maxHealth;
+        // currentHealth = maxHealth;
         attackDamage = initialAttackDamage + attackPowerup;
+        animator.SetBool("IsDead",false);
+
     }
 
 
     void Update()
     {
         attackDamage = initialAttackDamage + attackPowerup;
-        Debug.Log(attackDamage);
+        // Debug.Log(attackDamage);
         
         if(Time.time>=nextAttackTime)
         {
@@ -60,6 +63,7 @@ public class PlayerCombat : MonoBehaviour
         if (currentHealth<=0){
             animator.SetBool("IsDead",true);
             Debug.Log("Player Died!");
+
         }
 
         if (Camera.main.transform.position.y > transform.position.y+5){
@@ -75,6 +79,9 @@ public class PlayerCombat : MonoBehaviour
         // If len of hitEnemies > 0, then we hit an enemy
         if (hitEnemies.Length > 0) {
             hitEnemies[0].GetComponent<Enemy>().TakeDamage(attackDamage);
+            // Log de attackDamage eith string
+            Debug.Log("Hit enemy with attack damage: " + attackDamage);
+
         }
 
         // foreach(Collider2D enemy in hitEnemies){
@@ -110,6 +117,9 @@ public class PlayerCombat : MonoBehaviour
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.color =  new Color(255f, 0f, 0f, 1f);
         damageSound.Play();
+        // Debug log player current health
+        Debug.Log("Player current health: " + currentHealth);
+
         
     }
 
@@ -125,5 +135,11 @@ public class PlayerCombat : MonoBehaviour
             hit.gameObject.SetActive(false);
         }
             
+    }
+
+    public static void ResetPlayerStats() {
+        currentHealth = maxHealth; // defaultHealth is a static field that holds the default value for currentHealth
+        attackPowerup = 0; // defaultAttack is a static field that holds the default value for attackpowerup
+
     }
 }
